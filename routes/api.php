@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // api/orders
 Route::get('orders', 'OrdersController@orders');
@@ -24,6 +24,7 @@ Route::post('orders', 'OrdersController@store');
 // api/orders/{order}
 Route::get('orders/{order}', 'OrdersController@show');
 Route::put('orders/{order}', 'OrdersController@update');
+Route::post('orders/{order}', 'OrdersController@addItem');
 
 //api/costumers
 Route::get('costumers', 'CostumersController@costumers');
