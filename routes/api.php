@@ -25,11 +25,18 @@ Route::post('orders', 'OrdersController@store');
 Route::get('orders/{order}', 'OrdersController@show');
 Route::put('orders/{order}', 'OrdersController@update');
 Route::post('orders/{order}', 'OrdersController@addItem');
+Route::delete('orders/{order}', 'OrdersController@delete');
 
-//api/costumers
-Route::get('costumers', 'CostumersController@costumers');
-Route::post('costumers', 'CostumersController@store');
+//api/customers
+Route::get('customers', 'CustomersController@customers');
+Route::put('customers', 'CustomersController@store');
 
-//api/costumers/{costumer}
-Route::get('costumers/{costumer}', 'CostumersController@show');
-Route::get('costumers/{costumer}/orders', 'CostumersController@orders');
+//api/customers/{customer}
+Route::get('customers/{customer}', 'CustomersController@show');
+Route::put('customers/{customer}', 'CustomersController@update');
+Route::delete('customers/{customer}', 'CustomersController@delete');
+
+//api/customers/{customer}
+Route::get('customers/{customer}/orders', 'CustomersController@orders');
+Route::post('customers/{customer}/orders', 'CustomersController@addOrder');
+Route::delete('customers/{customer}/orders', 'CustomersController@deleteOrders');

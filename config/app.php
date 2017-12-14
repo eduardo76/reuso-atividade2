@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Recife',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-br',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'base64:+mYAWqSoRQdmGhHSaKMCZiVTX2W57yR0Y5t5alvdK70='),
 
     'cipher' => 'AES-256-CBC',
 

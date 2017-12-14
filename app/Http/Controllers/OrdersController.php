@@ -17,7 +17,7 @@ class OrdersController extends Controller
     }
 
     public function orders() {
-        $orders = $this->order->with(['items', 'costumer'])->get();
+        $orders = $this->order->with(['items', 'customer'])->get();
         return response()->json($orders);
     }
 
@@ -26,9 +26,9 @@ class OrdersController extends Controller
         return response()->json($order);
     }
 
-    public function show(Request $request, Order $order) {
-        $order->load(['costumers', 'items']);
-        return response()->json($order->with(['costumer','items'])->first());
+    public function show(Order $order) {
+        $order->load(['customer', 'items']);
+        return response()->json($order);
     }
 
     public function update(Request $request, Order $order) {
@@ -39,5 +39,11 @@ class OrdersController extends Controller
     public function addItem(Request $request, Order $order) {
         $item = $order->items()->create($request->all());
         return response()->json($item);
+    }
+
+    public function delete(Order $order) {
+        $order->items()->delete();
+        $order->delete();
+        return response()->json(['msg' => 'Ordem de serviço removida.']);
     }
 }

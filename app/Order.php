@@ -3,15 +3,15 @@
 namespace App;
 
 use App\Item;
-use App\Costumer;
+use App\Customer;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ['costumer_id', 'total'];
+    protected $fillable = ['customer_id', 'total'];
 
-    public function costumer() {
-        return $this->belongsTo(Costumer::class);
+    public function customer() {
+        return $this->belongsTo(Customer::class);
     }
 
     public function items() {
