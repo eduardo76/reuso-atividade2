@@ -17,7 +17,7 @@ class OrdersController extends Controller
     }
 
     public function orders() {
-        $orders = $this->order->with('items')->get();
+        $orders = $this->order->with(['items', 'costumer'])->get();
         return response()->json($orders);
     }
 
