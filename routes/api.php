@@ -2,20 +2,8 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+////////  ROTAS ATIVIDADE 2 ///////
 
 // api/orders
 Route::get('orders', 'OrdersController@orders');
@@ -40,3 +28,25 @@ Route::delete('customers/{customer}', 'CustomersController@delete');
 Route::get('customers/{customer}/orders', 'CustomersController@orders');
 Route::post('customers/{customer}/orders', 'CustomersController@addOrder');
 Route::delete('customers/{customer}/orders', 'CustomersController@deleteOrders');
+/////// FIM ROTAS ATIVIDADE 2 ///////////
+
+
+
+////////  ROTAS ATIVIDADE 3 ///////
+Route::get('usuarios', 'UsuariosController@usuarios');
+Route::post('usuarios', 'UsuariosController@store');
+Route::get('usuarios/{id}', 'UsuariosController@show');
+Route::put('usuarios/{id}', 'UsuariosController@update');
+Route::delete('usuarios/{id}', 'UsuariosController@delete');
+
+Route::get('perfis', 'PerfisController@perfis');
+Route::post('perfis', 'PerfisController@store');
+Route::get('perfis/{id}', 'PerfisController@show');
+Route::put('perfis/{id}', 'PerfisController@update');
+Route::delete('perfis/{id}', 'PerfisController@delete');
+
+Route::get('usuarios/{id}/perfil', 'UsuariosController@perfil');
+Route::post('usuarios/{id}/perfil/{perfil_id}', 'UsuariosController@associarPerfil');
+Route::delete('usuarios/{id}/perfil', 'UsuariosController@desassociarPerfil');
+////////  FIM ROTAS ATIVIDADE 3 ///////
+
