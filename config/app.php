@@ -10,7 +10,6 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
-    |
     */
 
     'name' => env('APP_NAME', 'Laravel'),
@@ -104,7 +103,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'base64:+mYAWqSoRQdmGhHSaKMCZiVTX2W57yR0Y5t5alvdK70='),
+    'key' => env('APP_KEY', 'base64:W/QWHjYDhaMCpwDB8XhL7F63ZL8QaWgWffR5kftCDuo='),
 
     'cipher' => 'AES-256-CBC',
 
@@ -167,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...

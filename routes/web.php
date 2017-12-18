@@ -11,12 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-// Route::get('/', function () {
-//     return view('api');
-// });
-
+Route::get('/', function () {
+    return view('welcome');
+});
