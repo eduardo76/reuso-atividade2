@@ -10,24 +10,24 @@ Route::get('orders', 'OrdersController@orders');
 Route::post('orders', 'OrdersController@store');
 
 // api/orders/{order}
-Route::get('orders/{order}', 'OrdersController@show');
-Route::put('orders/{order}', 'OrdersController@update');
-Route::post('orders/{order}', 'OrdersController@addItem');
-Route::delete('orders/{order}', 'OrdersController@delete');
+Route::get('orders/{id}', 'OrdersController@show');
+Route::put('orders/{id}', 'OrdersController@update');
+Route::post('orders/{id}', 'OrdersController@addItem');
+Route::delete('orders/{id}', 'OrdersController@delete');
 
 //api/customers
 Route::get('customers', 'CustomersController@customers');
 Route::put('customers', 'CustomersController@store');
 
 //api/customers/{customer}
-Route::get('customers/{customer}', 'CustomersController@show');
-Route::put('customers/{customer}', 'CustomersController@update');
-Route::delete('customers/{customer}', 'CustomersController@delete');
+Route::get('customers/{id}', 'CustomersController@show');
+Route::put('customers/{id}', 'CustomersController@update');
+Route::delete('customers/{id}', 'CustomersController@delete');
 
 //api/customers/{customer}
-Route::get('customers/{customer}/orders', 'CustomersController@orders');
-Route::post('customers/{customer}/orders', 'CustomersController@addOrder');
-Route::delete('customers/{customer}/orders', 'CustomersController@deleteOrders');
+Route::get('customers/{id}/orders', 'CustomersController@orders');
+Route::post('customers/{id}/orders', 'CustomersController@addOrder');
+Route::delete('customers/{id}/orders', 'CustomersController@deleteOrders');
 /////// FIM ROTAS ATIVIDADE 2 ///////////
 
 

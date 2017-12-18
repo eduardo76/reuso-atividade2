@@ -26,22 +26,25 @@ class OrdersController extends Controller
         return response()->json($order);
     }
 
-    public function show(Order $order) {
-        $order->load(['customer', 'items']);
+    public function show($id) {
+        $order = $this->order->with(['customer', 'items'])->find($id);
         return response()->json($order);
     }
 
-    public function update(Request $request, Order $order) {
+    public function update(Request $request, $id) {
+        $order = $this->order->find($id);
         $order->update($request->all());
         return response()->json($order);
     }
-
-    public function addItem(Request $request, Order $order) {
-        $item = $order->items()->create($request->all());
+    
+    public function addItem(Request $request, $id) {
+        $order = $this->order->find($id);
+        $item  = $order->items()->create($request->all());
         return response()->json($item);
     }
-
-    public function delete(Order $order) {
+    
+    public function delete($id) {
+        $order = $this->order->find($id);
         $order->items()->delete();
         $order->delete();
         return response()->json(['msg' => 'Ordem de serviço removida.']);

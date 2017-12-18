@@ -23,33 +23,38 @@ class CustomersController extends Controller
         return response()->json($customer);
     }
 
-    public function show(Request $request, Customer $customer) {
-        $customer->load(['orders']);
+    public function show(Request $request, $id) {
+        $customer = $this->customer->with(['orders'])->find($id);
         return response()->json($customer);
     }
-
-    public function update(Request $request, Customer $customer) {
+    
+    public function update(Request $request, $id) {
+        $customer = $this->customer->find($id);
         $customer->update($request->all());
         return response()->json($customer);
     }
 
-    public function delete(Request $request, Customer $customer) {
+    public function delete(Request $request, $id) {
+        $customer = $this->customer->find($id);
         $customer->orders()->delete();
         $customer->delete();
         return response()->json(['msg' => 'Customer removido.']);
     }
 
-    public function orders(Request $request, Customer $customer) {
-        $orders = $customer->orders->all();
+    public function orders(Request $request, $id) {
+        $customer = $this->customer->find($id);
+        $orders   = $customer->orders->all();
         return response()->json($orders);
     }
     
-    public function addOrder(Request $request, Customer $customer) {
-        $order = $customer->order()->create($request->all());
+    public function addOrder(Request $request, $id) {
+        $customer = $this->customer->find($id);
+        $order    = $customer->orders()->create($request->all());
         return response()->json($order);
     }
 
-    public function deleteOrders(Request $request, Customer $customer) {
+    public function deleteOrders(Request $request, $id) {
+        $customer = $this->customer->find($id);
         $customer->orders()->delete();
         return response()->json(['msg' => 'Ordens de serviço removidas.']);
     }
